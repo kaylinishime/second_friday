@@ -34,9 +34,7 @@ function register (req, res, next) {
 					password: hash
 				});
 				newuser.save().then(function(createdUser, err) {
-					console.log("mama mia", createdUser);
 					var token = createToken(createdUser.dataValues);
-					console.log("Tokin'", token);
 					if (err) {
 						res.json(err)
 						return false
@@ -45,8 +43,8 @@ function register (req, res, next) {
 					res.json({ token: token })
 				})
 			});
-			})
-		}
+		})
+	}
 
 
 function login (req, res, next) {
@@ -55,11 +53,12 @@ function login (req, res, next) {
 
 		if (!email || !password) {
 			res.json({ error: "Username and password must be set" })
+
 			return false
 		}
 
 		// Verify that username exists in database
-		models.user.findOne({ where: {email: email}}).then(function (err, user) {
+		models.user.findOne({ where: {email: email}}).then(function (user, err) {
 			if (err) {
 				res.json(err)
 				return false
@@ -72,12 +71,14 @@ function login (req, res, next) {
 
 				// Verify password
 		bcrypt.compare(password, user.password, function (err, verified) {
+			console.log(verified)
+				console.log(err)
 				if (err) {
 					res.json(err)
 					return false
 				}
 				if (verified) {
-					res.json({ token: createToken(user) })
+					res.json({ token: createToken(user.dataValues) })
 				}
 				else {
 					res.json({ error: "Password is incorrect" })
