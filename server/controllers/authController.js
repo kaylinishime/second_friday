@@ -13,17 +13,15 @@ function register (req, res, next) {
 			return false
 		}
 		// Verify that the username has not been taken
-		models.user.findOne({ where: {email: email}}).then(function (err, user) {
+		models.user.findOne({ where: {email: email}}).then(function (user, err) {
 			if (err) {
-				res.json(err)
+				res.json({err: err, success: false})
 				return false
 			}
 			if (user) {
 				res.json({ error: "User already exists" })
 				return false
 			}
-		});
-
 
 			// Need to create a new user
 			bcrypt.hash(password, 10, function (err, hash) {
@@ -31,27 +29,68 @@ function register (req, res, next) {
 					res.json(err)
 					return false
 				}
-				var user = new User({
-					username: username,
-					password_hash: hash
-				})
-				user.save(function (err, user) {
+				var newuser = models.user.build({
+					email: email,
+					password: hash
+				});
+				newuser.save().then(function(createdUser, err) {
+					console.log("mama mia", createdUser);
+					var token = createToken(createdUser.dataValues);
+					console.log("Tokin'", token);
 					if (err) {
 						res.json(err)
 						return false
 					}
 					// Everything worked, send back a token
-					res.json({ token: createToken(user) })
+					res.json({ token: token })
 				})
+			});
 			})
+		}
 
 
+function login (req, res, next) {
+		var email = req.body.email
+		var password = req.body.password
 
-	function createToken (user) {
-		return jwt.sign(user, process.env.JWT_SECRET)
+		if (!email || !password) {
+			res.json({ error: "Username and password must be set" })
+			return false
+		}
+
+		// Verify that username exists in database
+		models.user.findOne({ where: {email: email}}).then(function (err, user) {
+			if (err) {
+				res.json(err)
+				return false
+				}
+			if (!user) {
+				res.json({ error: "User does not exist" })
+				return false
+				}
+
+
+				// Verify password
+		bcrypt.compare(password, user.password, function (err, verified) {
+				if (err) {
+					res.json(err)
+					return false
+				}
+				if (verified) {
+					res.json({ token: createToken(user) })
+				}
+				else {
+					res.json({ error: "Password is incorrect" })
+				}
+			})
+		});
+		}
+
+function createToken (user) {
+	return jwt.sign(user, process.env.JWT_SECRET)
 	}
 
-	function verifyToken (req, res, next) {
+function verifyToken (req, res, next) {
 		jwt.verify(req.query.token, process.env.JWT_SECRET, function (err, decoded) {
 			if (err) {
 				res.json(err)
@@ -61,9 +100,11 @@ function register (req, res, next) {
 			next()
 		})
 	}
-}
+
 
 module.exports = {
 	register: register,
-	verifyToken: verifyToken
+	createToken, createToken,
+	verifyToken: verifyToken,
+	login: login
 }
