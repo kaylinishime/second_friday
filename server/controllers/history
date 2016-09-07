@@ -1,0 +1,39 @@
+function login (req, res, next) {
+	var username = req.body.username
+	var password = req.body.password
+
+	if (!username || !password) {
+		res.json({ error: "Username and password must be set" })
+		return false
+	}
+
+	// Verify that username exists in database
+sequelize.query("SELECT * FROM user WHERE user.email=").spread(function(results, metadata) {
+  // Results will be an empty array and metadata will contain the number of affected rows.
+})
+
+({ where:{email: email}}).then(function (err, user) {
+		if (err) {
+			res.json(err)
+			return false
+		}
+		if (!user) {
+			res.json({ error: "User does not exist" })
+			return false
+		}
+
+		// Verify password
+		bcrypt.compare(password, email.password_hash, function (err, verified) {
+			if (err) {
+				res.json(err)
+				return false
+			}
+			if (verified) {
+				res.json({ token: createToken(user) })
+			}
+			else {
+				res.json({ error: "Password is incorrect" })
+			}
+		})
+	})
+}
