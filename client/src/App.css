@@ -18,6 +18,91 @@
   font-size: large;
 }
 
+.nav {
+background-color: transparent;
+}
+
+.coverimage {
+  width: 100%;
+  height: 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  height: 50% !important;
+}
+
+
+
+h3 {
+margin-left: auto !important;
+margin-right: auto !important;
+margin-top: -2.5em !important;
+font-size: 200px !important;
+font-family: 'Sansita One', cursive !important;
+text-align: center !important;
+}
+
+h1 {
+  font-family: 'Sansita One', cursive !important;
+}
+
+p {
+  font-size: 40px;
+}
+
+.form-control {
+  width: 29% !important;
+  height: 46px !important;
+  margin-top: 10px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.firstlabel {
+  margin-top: 180px !important;
+}
+.form-group, .btn {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  display: block !important;
+}
+
+.nav {
+  color: grey !important;
+}
+
+.smallnav {
+    position: relative;
+    display: block;
+    padding: 24px 24px !important;
+    float: right !important;
+}
+
+.bignav {
+  margin-left: 20px;
+}
+
+
+
+.carousel-control.left {
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0))) !important;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%) !important;
+  }
+
+  .carousel-control.right {
+      background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%) !important;
+      background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0))) !important;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    }
+
+    .carousel-caption {
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+    }
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

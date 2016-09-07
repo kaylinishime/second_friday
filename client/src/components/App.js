@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import Header from './header';
-import './App.css';
+import Navbar from './navbar';
+import Coverimage from './coverimage'
+import '../App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <Navbar />
+          {this.props.children}
+        <Coverimage />
+
 
 
       </div>
+
     );
   }
 }
