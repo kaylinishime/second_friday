@@ -1,24 +1,15 @@
 import axios from 'axios';
-import { browserHistory } from 'react-router';
 
-const ROOT_URL = 'http://localhost:3000';
+export const FETCH_YELP = 'FETCH_YELP';
 
-export function signinUser ({ email, password }) {
-  // redux-thunk allows you to return a function, you get direct access to the dispatch
-  // therefore, we can dispatch this function anytime we want (no asynchronous calls)
-  return function(dispatch){
-    console.log("posting")
-    axios.post(`${ROOT_URL}/login`, { email, password })
-    .then(response => {
-      browserHistory.push('/');
-    })
-    .catch(() => {
+export function fetchYelp(term, location){
+  const url = `http://localhost:3000/yelp?q=${term}&location=${location}`;
+  const request = axios.get(url);
+  console.log('sent')
 
-    })
+return {
+  type: FETCH_YELP,
+  payload: request
+};
 
-  }
-  }
-  // Submit email/password to the server
-  // If request is good, update state to indicate user is authenticated, save JWT token, redirect to the route/feature
-
-  // If request is bad, show an error to the user
+}

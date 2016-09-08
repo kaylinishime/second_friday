@@ -83,16 +83,30 @@ p {
   display: block !important;
 }
 
+.search-bar {
+  margin: 20px;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 75%;
+}
+
+
 .nav {
   color: grey !important;
+}
+
+.profilenav {
+  margin-left: 55px !important;
 }
 
 .smallnav, .navbar {
     position: relative;
     display: block;
-    padding: 8px 20px !important;
+    padding: 11px 17px !important;
     float: right !important;
-    color: rgba(0,0,0,0.5) !important;
+    color: rgba(0,0,0,0.8) !important;
     font-size: 15px;
 }
 

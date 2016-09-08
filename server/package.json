@@ -19,14 +19,19 @@
     "express": "^4.14.0",
     "http": "0.0.0",
     "jwt-simple": "^0.5.0",
+    "lodash": "^4.15.0",
     "morgan": "^1.7.0",
+    "node-yelp": "0.0.3",
     "passport": "^0.3.2",
     "passport-jwt": "^2.1.0",
     "passport-local": "^1.0.0",
     "pg": "^4.4.3",
     "pg-hstore": "^2.3.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
     "sequelize": "^3.12.2",
     "sequelize-cli": "^2.1.0",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "yelp": "^1.0.1"
   }
 }
