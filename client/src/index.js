@@ -8,6 +8,7 @@ import reduxThunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
 import Signin from './components/auth/signin';
+import Profile from './components/profile'
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -22,6 +23,7 @@ ReactDOM.render((
     <Router history={browserHistory}>
         <Route path='/' component={App} />
         <Route path='signin' component={Signin} />
+        <Route path='profile' component={Profile} />
     </Router>
     </Provider>
     ), document.getElementById('root')

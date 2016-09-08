@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
+import { browserHistory } from 'react-router';
 import * as actions from '../../actions';
 import $ from 'jquery';
 
@@ -9,8 +10,14 @@ class Signin extends Component {
     const password = $("#password").val()
     $.post('http://localhost:3000/login', { email, password })
       .then(function (response) {
-        console.log(response)
-      })
+        if (response.error)
+        console.log('incorrect username or password')
+        // show something in the ui
+        else {
+      console.log(response)
+        browserHistory.push('/profile')
+      }
+    })
     e.preventDefault()
   }
 
