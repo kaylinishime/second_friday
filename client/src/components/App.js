@@ -10,9 +10,6 @@ class App extends Component {
         <Navbar />
           {this.props.children}
         <Coverimage />
-
-
-
       </div>
 
     );

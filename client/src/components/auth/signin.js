@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-
+import * as actions from '../../actions';
+import $ from 'jquery';
 
 class Signin extends Component {
-  handleSubmit({ email, password }) {
-    console.log(email, password);
-    // Need to do something to log user in
+  handleFormSubmit(e) {
+    const email = $("#email").val()
+    const password = $("#password").val()
+    $.post('http://localhost:3000/login', { email, password })
+      .then(function (response) {
+        console.log(response)
+      })
+    e.preventDefault()
   }
 
   render(){
-    const { handleSubmit, fields: {email, password}} = this.props;
+    const { fields: {email, password}} = this.props;
+
+
     return(
-      <div>
-      <form onSubmit={handleSubmit(this,handleSubmit.bind(this))}>
+
+      <form onSubmit={this.handleFormSubmit.bind(this)}>
         <fieldset className="form-group">
           <label className="firstlabel">Email:</label>
-          <input className="form-control" />
+          <input id="email" {...email} className="form-control" />
           </fieldset>
         <fieldset className="form-group">
           <label>Password:</label>
-          <input className="form-control" />
+          <input {...password} id="password" type="password" className="form-control" />
         </fieldset>
         <button action="submit" className="btn btn-primary">Sign In</button>
       </form>
-      </div>
     );
   }
 }
@@ -31,4 +38,4 @@ class Signin extends Component {
 export default reduxForm({
   form: 'signin',
   fields: ['email', 'password']
-})(Signin);
+}, null, actions)(Signin);

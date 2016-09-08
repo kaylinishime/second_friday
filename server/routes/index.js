@@ -5,7 +5,7 @@ var authController = require("../controllers/authController")
 var userController = require("../controllers/userController")
 
 router.get('/', function(req, res, next) {
-  res.json({message: 'hello'});
+  res.send({message: 'hello'});
 });
 
 router.post("/login", authController.login)

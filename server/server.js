@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sequelize = require('sequelize');
 var http = require('http');
+const cors = require('cors');
 
 
 var routes = require('./routes/index.js');
@@ -15,6 +16,7 @@ var routes = require('./routes/index.js');
 require('dotenv').load()
 var app = express();
 // App Setup
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
