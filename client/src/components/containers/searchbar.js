@@ -15,7 +15,6 @@ class SearchBar extends Component {
 
       this.onInputTerm = this.onInputTerm.bind(this)
       this.onInputLocation = this.onInputLocation.bind(this)
-
       this.onFormSubmit = this.onFormSubmit.bind(this);
     }
 
@@ -34,24 +33,16 @@ class SearchBar extends Component {
     }
 
   render() {
+
+
+
     return (
-
-    <form onSubmit={this.onFormSubmit} className="input-group">
-
-        <input id="term" placeholder="keyword" className="form-control"
-        value={this.state.term}
-        onChange={this.onInputTerm}
-        />
-
-        <input id="location" placeholder="location" className="form-control"
-        value={this.state.location}
-        onChange={this.onInputLocation}
-        />
-
-        <span className="input-group-btn">
-        <button type="submit" className="btn btn-secondary">
-        Submit
-        </button>
+    <form onSubmit={this.onFormSubmit} id="formid" className="input-group">
+        <input id="term" placeholder="keyword" className="form-control searchbar" value={this.state.term} onChange={this.onInputTerm} />
+        <input id="location" placeholder="location" className="form-control searchbar"
+        value={this.state.location} onChange={this.onInputLocation}/>
+        <span>
+        <button type="submit" className="btn btn-secondary">Submit</button>
       </span>
     </form>
 

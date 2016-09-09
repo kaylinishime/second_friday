@@ -29,17 +29,6 @@ class Profile extends Component {
       <SearchBar />
       <YelpList />
 
-      <Grid>
-        <Row className="show-grid">
-        <Col md={6} mdPush={6} className="column">
-        </Col>
-
-        <Col md={6} mdPull={6} className="column">
-      saasf
-        </Col>
-        </Row>
-      </Grid>
-
       </div>
     )
   }

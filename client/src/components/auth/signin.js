@@ -36,7 +36,7 @@ class Signin extends Component {
           <label>Password:</label>
           <input {...password} id="password" type="password" className="form-control" />
         </fieldset>
-        <button action="submit" className="btn btn-primary">Sign In</button>
+        <button id="signinButton" action="submit" className="btn btn-primary">Sign In</button>
       </form>
     );
   }
