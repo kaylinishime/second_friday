@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 
 class YelpList extends Component {
   renderYelp(data){
+    const name = data.businesses.map(place => place.name)
+    const rating = data.businesses.map(place => place.rating)
     return(
-      <tr>
-      <td>{data.businesses.map(place => place.name)}</td>
+      <tr key={name}>
+      <td>{name}</td>
+      <td>{rating}</td>
       </tr>
 
     )

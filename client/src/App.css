@@ -14,6 +14,10 @@
   height: 30em !important;
 }
 
+th, td {
+  padding: 10px 98px !important;
+}
+
 
 
 
@@ -32,7 +36,7 @@
     display: inline-block;
     padding: 10px 13px !important;
     margin-bottom: 0px;
-    font-size: 18px !important;
+    font-size: 15px !important;
     font-weight: normal;
     line-height: normal;
     text-align: center;
@@ -48,7 +52,7 @@
     background-image: none;
     border: 1px solid transparent;
     border-radius: 3px !important;
-    margin-top: 9px !important;
+    margin-top: 10px !important;
     margin-left: 20px !important;
 }
 
