@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { reducer as form } from 'redux-form'
+import YelpReducer from './reducer_yelp'
 
 const rootReducer = combineReducers({
-  form
+  yelp: YelpReducer
 });
 
 export default rootReducer;

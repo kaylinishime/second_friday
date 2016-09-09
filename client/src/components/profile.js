@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { Col, Grid, Row, MenuItem, NavDropdown, Nav, NavItem } from 'react-bootstrap';
 import Navbar from './navbar';
 import '../App.css';
-import SearchBar from './containers/searchbar'
+import SearchBar from './containers/searchbar';
+import YelpList from './containers/yelp_list';
 
 class Profile extends Component {
 
@@ -26,6 +27,7 @@ class Profile extends Component {
       </NavDropdown>
       </Nav>
       <SearchBar />
+      <YelpList />
 
       <Grid>
         <Row className="show-grid">
