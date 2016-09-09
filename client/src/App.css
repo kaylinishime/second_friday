@@ -13,13 +13,34 @@ th, td {
   padding: 10px 98px !important;
 }
 
-#term {
-  margin-left: 100px !important;
+input#email.form-control{
+  margin-top: 40px !important;
 }
 
+input#term.form-control.searchbar{
+  margin-top: 11% !important
+}
+
+.firstlabel {
+    font-size: 1.5rem !important;
+    margin-right: 1rem !important;
+  }
 
 #formid {
   width: 1500px;
+}
+
+input.form-control.searchbar {
+    width: 29% !important;
+    height: 46px !important;
+    margin-top: 184px !important;
+    margin-left: -140px !important;
+    margin-right: auto !important;
+  }
+
+#term {
+  margin-left: 100px !important;
+  margin-top: 100px !important;
 }
 
 .btn {
@@ -42,8 +63,8 @@ th, td {
     background-image: none;
     border: 1px solid transparent;
     border-radius: 3px !important;
-    margin-top: 10px !important;
-    margin-left: 20px !important;
+    margin-top: 12px !important;
+    margin-left: 56px !important;
 }
 
 #signinButton {
@@ -63,6 +84,10 @@ font-family: 'Sansita One', cursive !important;
 
 p {
   font-size: 40px;
+}
+
+fieldset {
+  border: 1px solid rgba(0,0,0,0)!important;
 }
 
 .form-control {
@@ -91,7 +116,13 @@ p {
   width: 75%;
 }
 
+.form-group{
+  clear:both;
+}
 
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: rgba(0, 0, 0, 0) !important;
+  }
 
 .smallnav, .navbar {
     position: relative;

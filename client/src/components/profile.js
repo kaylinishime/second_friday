@@ -10,25 +10,17 @@ class Profile extends Component {
 
   render(){
 
+    var navStyle = {
+      marginTop: '20px',
+    }
 
     return (
       <div className="App">
+      <div>
       <Navbar />
-
-      <h1>Welcome back!</h1>
-      <Nav className="profilenav" bsStyle="tabs" activeKey="1" onSelect={this.handleSelect}>
-      <NavItem eventKey="2" title="Item">Create Event</NavItem>
-      <NavDropdown eventKey="4" title="My Events" id="nav-dropdown">
-      <MenuItem eventKey="4.1">Action</MenuItem>
-      <MenuItem eventKey="4.2">Another action</MenuItem>
-      <MenuItem eventKey="4.3">Something else here</MenuItem>
-      <MenuItem divider />
-      <MenuItem eventKey="4.4">Separated link</MenuItem>
-      </NavDropdown>
-      </Nav>
+      </div>
       <SearchBar />
       <YelpList />
-
       </div>
     )
   }

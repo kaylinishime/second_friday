@@ -38,8 +38,8 @@ class SearchBar extends Component {
 
     return (
     <form onSubmit={this.onFormSubmit} id="formid" className="input-group">
-        <input id="term" placeholder="keyword" className="form-control searchbar" value={this.state.term} onChange={this.onInputTerm} />
-        <input id="location" placeholder="location" className="form-control searchbar"
+        <input idName="term" placeholder="keyword" className="form-control searchbar" value={this.state.term} onChange={this.onInputTerm} />
+        <input idName="location" placeholder="location" className="form-control searchbar"
         value={this.state.location} onChange={this.onInputLocation}/>
         <span>
         <button type="submit" className="btn btn-secondary">Submit</button>

@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form';
 import { browserHistory } from 'react-router';
 import * as actions from '../../actions';
 import $ from 'jquery';
+import Navbar from '../navbar';
 
 class Signin extends Component {
   handleFormSubmit(e) {
@@ -26,18 +27,20 @@ class Signin extends Component {
 
 
     return(
-
-      <form onSubmit={this.handleFormSubmit.bind(this)}>
-        <fieldset className="form-group">
+      <div>
+      <Navbar />
+      <form className="wholeform" onSubmit={this.handleFormSubmit.bind(this)}>
+        <fieldset idName="firstfield" className="form-group">
           <label className="firstlabel">Email:</label>
           <input id="email" {...email} className="form-control" />
           </fieldset>
         <fieldset className="form-group">
-          <label>Password:</label>
+          <label className="firstlabel">Password:</label>
           <input {...password} id="password" type="password" className="form-control" />
         </fieldset>
-        <button id="signinButton" action="submit" className="btn btn-primary">Sign In</button>
+        <button id="signinButton"action="submit" className="btn btn-primary">Sign In</button>
       </form>
+      </div>
     );
   }
 }
