@@ -1,49 +1,42 @@
 
 import React, { Component } from 'react';
-import { Carousel } from 'react-bootstrap';
+import $ from 'jquery';
+
 
 
 
 class Coverimage extends Component {
   render(){
-
-    var fridaystyle = {
-      marginBottom:'250px'
+    var imageStyle = {
+      width: '100%',
+      position: 'absolute',
+      marginTop: '7%',
+      left: '0',
+      top: '0'
+    }
+    var containerStyle = {
+      height: '100%',
+      width: '100%',
+      position: 'relative'
     }
 
-    var fontstyle = {
-      fontSize: '200px'
+    var textStyle = {
+      zIndex: '100',
+      position: 'absolute',
+      color: 'white',
+      fontSize: '90px',
+      fontWeight: 'bold',
+      left: '190px',
+      textShadow: '1px 1px rgba(0,0,0,0.6)',
+      top: '220px'
     }
     return (
-
-      <Carousel>
-        <Carousel.Item>
-          <img className="coverimage" width={'100%'} height={'50%'} alt="900x500" src={"/src/style/images/fridaycover.jpg"}/>
-          <Carousel.Caption>
-            <h3 style={fontstyle}>Friday</h3>
-            <p style={fridaystyle}>Lets Plan together</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="coverimage" width={'100%'} height={'50%'} alt="900x500" src={"/src/style/images/sanfran.jpeg"}/>
-          <Carousel.Caption>
-            <h3></h3>
-            <p></p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="coverimage" width={'100%'} height={'50%'} alt="900x500" src={"/src/style/images/newyork.jpeg"}/>
-          <Carousel.Caption>
-            <h3></h3>
-            <p></p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-
-
-
-
-
+      <div>
+      <div style={containerStyle} idName="container">
+        <img style={imageStyle} idName="image" src={"/src/style/images/fridaycover.jpg"} />
+        <p style={textStyle} idName="text">Lets plan together.</p>
+      </div>
+      </div>
     );
   }
 }
